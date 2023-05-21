@@ -1,0 +1,14 @@
+{% extends 'acceuil.html' %}
+
+{% block content %} 
+<h3>Ajout personnel</h3>
+<div class="modal-body py-0 w-50 p-3">
+    <form method='POST' class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+</div>
+
+ 
+{% endblock %}

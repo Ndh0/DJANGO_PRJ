@@ -1,0 +1,31 @@
+{% extends "admin/admin_panel.html" %}
+
+
+{% load static %}
+{% block content %}
+<h3>Listes des projets à approver</h3>
+
+{% if projects_to_approve %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">libelle </th>
+          <th scope="col">equipe</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for project in projects_to_approve %}
+        <tr>
+          <th>{{project.libelle}} </th>
+          <td>{{project.equipe}}</td>
+          <td><button type="button" class="btn btn-warning"><a href="{% url 'approve_project' project.pk %}">Approve</a></button></td>
+          
+        </tr>
+        {% endfor %}
+      </tbody>
+</table>
+{% else %}
+    <p>There are no projects to approve.</p>
+  {% endif %}
+{% endblock %}

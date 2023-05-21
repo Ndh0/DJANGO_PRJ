@@ -1,0 +1,29 @@
+{% extends 'admin/admin_panel.html' %}
+{% load static %}
+{% block content %}
+<h3>list des projets</h3>
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">libelle </th>
+          <th scope="col">equipe</th>
+          <th scope="col">status</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for fr in list %}
+        <tr>
+          <td>{{fr.libelle}} </td>
+          <td>{{fr.equipe}}</td>
+          {% if fr.acheve  %}
+          <td style="color:red;">not finished</td>
+          
+          {% else %}
+          <td style="color:green;">finished</td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+</table>
+{% endblock %}
